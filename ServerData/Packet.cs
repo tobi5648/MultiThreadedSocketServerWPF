@@ -71,8 +71,10 @@
             catch (ArgumentNullException) { throw; }
             catch (System.Runtime.Serialization.SerializationException) { throw; }
             catch (System.Security.SecurityException) { throw; }
-        } 
+        }
         #endregion
+
+        #region Methods
         /// <summary>
         /// Gives the data in bytes.
         /// </summary>
@@ -95,12 +97,13 @@
         {
             IPAddress[] ips = Dns.GetHostAddresses(Dns.GetHostName());
 
-            foreach(IPAddress i in ips)
+            foreach (IPAddress i in ips)
             {
                 if (i.AddressFamily == AddressFamily.InterNetwork)
                     return i.ToString();
             }
             return "127.0.0.1";
-        }
+        } 
+        #endregion
     }
 }
