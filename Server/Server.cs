@@ -9,7 +9,7 @@
     using System.Net; 
     #endregion
 
-    class Server
+    public class Server
     {
         #region Constants
         /// <summary>
@@ -25,18 +25,20 @@
         /// <summary>
         /// A list of clients
         /// </summary>
-        static List<ClientData> clients;
+        public static List<ClientData> clients;
         /// <summary>
         /// The IP address.
         /// </summary>
         static IPAddress iPAddress = IPAddress.Parse(Packet.GetIP4Address());
+
+        static bool hasbeen = false;
         #endregion
 
         /// <summary>
         /// The main method
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Starting server on " + Packet.GetIP4Address());
 
@@ -48,6 +50,23 @@
 
             Thread listenThread = new Thread(ListenThread);
             listenThread.Start();
+
+            Thread closeThread = new Thread(CloseThread);
+            closeThread.Start();
+        }
+
+        static void CloseThread()
+        {
+            for (;;)
+            {
+                if (hasbeen == true)
+                {
+                    if (clients.Count == 0)
+                    {
+                        Environment.Exit(0);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -59,6 +78,7 @@
             {
                 listenerSocket.Listen(0);
                 clients.Add(new ClientData(listenerSocket.Accept()));
+                hasbeen = true;
             }
         }
 
@@ -99,6 +119,10 @@
             }
         }
 
+        /// <summary>
+        /// The datamanager, deciding what to do, according to the packet.
+        /// </summary>
+        /// <param name="p">The packet.</param>
         public static void DataManager(Packet p)
         {
             switch (p.packetType)

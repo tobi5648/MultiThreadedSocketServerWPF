@@ -9,6 +9,7 @@
     using System.Net; 
     #endregion
 
+    [Serializable]
     public class Packet
     {
         #region Fields

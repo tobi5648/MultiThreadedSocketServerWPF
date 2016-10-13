@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerData", "ServerData\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{8DA3DE3B-35DF-4292-B95F-72E0DDEF638E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLogin", "User\UserLogin.csproj", "{F106848F-196A-49E5-A3E3-87FEBE3A0D61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chatroom", "Chatroom\Chatroom.csproj", "{A1DC177E-1CD5-4BB2-AAC1-4CDF6AFE44D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8DA3DE3B-35DF-4292-B95F-72E0DDEF638E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DA3DE3B-35DF-4292-B95F-72E0DDEF638E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DA3DE3B-35DF-4292-B95F-72E0DDEF638E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F106848F-196A-49E5-A3E3-87FEBE3A0D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F106848F-196A-49E5-A3E3-87FEBE3A0D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F106848F-196A-49E5-A3E3-87FEBE3A0D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F106848F-196A-49E5-A3E3-87FEBE3A0D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1DC177E-1CD5-4BB2-AAC1-4CDF6AFE44D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1DC177E-1CD5-4BB2-AAC1-4CDF6AFE44D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1DC177E-1CD5-4BB2-AAC1-4CDF6AFE44D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1DC177E-1CD5-4BB2-AAC1-4CDF6AFE44D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

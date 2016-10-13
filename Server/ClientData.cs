@@ -1,13 +1,13 @@
 ﻿namespace Server
 {
-    using ServerData;
     #region Usings
+    using ServerData;
     using System;
     using System.Net.Sockets;
     using System.Threading;
     #endregion
 
-    internal class ClientData
+    public class ClientData
     {
         #region Fields
         /// <summary>
@@ -24,6 +24,10 @@
         public string id; 
         #endregion
 
+        /// <summary>
+        /// Constructor of the ClientData.
+        /// </summary>
+        /// <param name="clientSocket">The Socket it takes.</param>
         public ClientData( Socket clientSocket)
         {
             try
@@ -37,6 +41,9 @@
             catch (ArgumentNullException) { throw; }
         }
 
+        /// <summary>
+        /// Sends the registration of the server.
+        /// </summary>
         public void SendRegistrationPacket()
         {
             Packet p = new Packet(PacketType.Registration, "server");
