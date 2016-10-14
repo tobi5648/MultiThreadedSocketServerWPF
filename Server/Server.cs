@@ -17,6 +17,7 @@
         /// </summary>
         const int port = 4242;
         #endregion
+
         #region Fields
         /// <summary>
         /// A socket to listen.
@@ -30,8 +31,7 @@
         /// The IP address.
         /// </summary>
         static IPAddress iPAddress = IPAddress.Parse(Packet.GetIP4Address());
-
-        static bool hasbeen = false;
+        static int closed;
         #endregion
 
         /// <summary>
@@ -59,12 +59,10 @@
         {
             for (;;)
             {
-                if (hasbeen == true)
+                listenerSocket.Listen(0);
+                if (clients.Count == closed)
                 {
-                    if (clients.Count == 0)
-                    {
-                        Environment.Exit(0);
-                    }
+                    Environment.Exit(0);
                 }
             }
         }
@@ -76,9 +74,7 @@
         {
             for (;;)
             {
-                listenerSocket.Listen(0);
                 clients.Add(new ClientData(listenerSocket.Accept()));
-                hasbeen = true;
             }
         }
 
@@ -107,6 +103,7 @@
                 {
                     try
                     {
+                        closed += 1;
                         Console.WriteLine("A client has disconnected");
                         Console.ReadLine();
                         Environment.Exit(0);
